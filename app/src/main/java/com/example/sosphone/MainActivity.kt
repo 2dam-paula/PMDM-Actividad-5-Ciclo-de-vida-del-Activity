@@ -59,6 +59,18 @@ class MainActivity : AppCompatActivity() {
         faseActual = "En onStart"
 
         Log.d(TAG, "\"onStart()\": La actividad está a punto de hacerse visible.")
+
+        var claseA1 = ClaseA()
+        claseA1.setId(1)
+        claseA1.setNombre("Miguel")
+        claseA1.setActivo(false)
+        Toast.makeText(this, claseA1.toString(), Toast.LENGTH_LONG).show()
+
+        var claseA2 = ClaseA(2, "Paula", true)
+        claseA2.getId()
+        claseA2.getNombre()
+        claseA2.getactivo()
+        Toast.makeText(this, claseA2.toString(), Toast.LENGTH_LONG).show()
     }
 
     override fun onResume() {
