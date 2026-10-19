@@ -27,8 +27,15 @@ class MainActivity : AppCompatActivity() {
 
     private val TAG = "[CICLO DE VIDA] "
 
+    var contadorPasos: Int = 0
+    var faseActual: String = "Inicio"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        contadorPasos++
+        faseActual = "En onCreate"
+
         Log.d(TAG, "\"onCreate()\": La actividad se esta creando.")
 
         mainBinding = ActivityPpalBinding.inflate(layoutInflater)
@@ -47,11 +54,19 @@ class MainActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
+
+        contadorPasos++
+        faseActual = "En onStart"
+
         Log.d(TAG, "\"onStart()\": La actividad está a punto de hacerse visible.")
     }
 
     override fun onResume() {
         super.onResume()
+
+        contadorPasos++
+        faseActual = "En onResume"
+
         Log.d(TAG, "\"onResume()\": La actividad está en primer plano y el usuario ya puede interaccionar.")
 
         permisionPhone = isPermissionCall()
@@ -62,21 +77,37 @@ class MainActivity : AppCompatActivity() {
 
     override fun onPause() {
         super.onPause()
+
+        contadorPasos++
+        faseActual = "En onPause"
+
         Log.d(TAG, "\"onPause()\": La actividad pierde el foco de la pantalla.")
     }
 
     override fun onStop() {
         super.onStop()
+
+        contadorPasos++
+        faseActual = "En onStop"
+
         Log.d(TAG, "\"onStop()\": La actividad deja de estar visible para el usuario.")
     }
 
     override fun onRestart() {
         super.onRestart()
+
+        contadorPasos++
+        faseActual = "En onRestart"
+
         Log.d(TAG, "\"onRestart()\": La actividad va a reiniciarse y volver a estar visible.")
     }
 
     override fun onDestroy() {
         super.onDestroy()
+
+        contadorPasos++
+        faseActual = "En onDestroy"
+
         Log.d(TAG, "\"onDestroy()\": La actividad va a ser destruida y muere.")
     }
 
